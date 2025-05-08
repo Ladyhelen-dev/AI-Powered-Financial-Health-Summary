@@ -1,9 +1,13 @@
 import openai
-from config import OPENAI_API_KEY
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 class FinancialAnalyzer:
     def __init__(self):
-        openai.api_key = OPENAI_API_KEY
+        openai.api_key = os.getenv("OPENAI_API_KEY")
 
     def analyze(self, text_data):
         """Sends text data to OpenAI and returns a financial summary."""
